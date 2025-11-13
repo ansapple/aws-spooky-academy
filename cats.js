@@ -4,7 +4,7 @@ const catBreeds = {
         name: "Whiskers",
         breed: "Pumpkin Ghost",
         emoji: "🎃",
-        image: "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=200&h=200&fit=crop&crop=face",
+        image: "https://images.unsplash.com/photo-1509557965875-b88c97052f0e?w=200&h=200&fit=crop",
         unlockRequirement: 0, // Always available
         personality: "Spooky and encouraging",
         description: "Your first haunted study buddy who loves AWS fundamentals!",
@@ -17,7 +17,7 @@ const catBreeds = {
         name: "Azure",
         breed: "Phantom Spirit",
         emoji: "👻",
-        image: "https://images.unsplash.com/photo-1513245543132-31f507417b26?w=200&h=200&fit=crop&crop=face",
+        image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=200&h=200&fit=crop",
         unlockRequirement: 50, // 50 correct answers
         personality: "Mysterious and intelligent",
         description: "A ghostly creature who excels at compute services!",
@@ -30,7 +30,7 @@ const catBreeds = {
         name: "Fluffy",
         breed: "Witch's Familiar",
         emoji: "🧙",
-        image: "https://images.unsplash.com/photo-1571566882372-1598d88abd90?w=200&h=200&fit=crop&crop=face",
+        image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=200&h=200&fit=crop",
         unlockRequirement: 100, // 100 correct answers
         personality: "Magical and storage-focused",
         description: "A mystical expert in all things storage and databases!",
@@ -43,7 +43,7 @@ const catBreeds = {
         name: "Network",
         breed: "Vampire Bat",
         emoji: "🦇",
-        image: "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=200&h=200&fit=crop&crop=face",
+        image: "https://images.unsplash.com/photo-1635241161466-541f065683ba?w=200&h=200&fit=crop",
         unlockRequirement: 200, // 200 correct answers
         personality: "Nocturnal and networking-savvy",
         description: "A night creature with vast knowledge of VPCs and networking!",
@@ -56,7 +56,7 @@ const catBreeds = {
         name: "Secure",
         breed: "Skeleton Guardian",
         emoji: "💀",
-        image: "https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=200&h=200&fit=crop&crop=face",
+        image: "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop",
         unlockRequirement: 300, // 300 correct answers
         personality: "Protective and security-conscious",
         description: "A bony guardian who takes security and IAM very seriously!",
@@ -69,7 +69,7 @@ const catBreeds = {
         name: "Lambda",
         breed: "Demon Lord",
         emoji: "😈",
-        image: "https://images.unsplash.com/photo-1608848461950-0fe51dfc41cb?w=200&h=200&fit=crop&crop=face",
+        image: "https://images.unsplash.com/photo-1587407627257-27672ab5b6e4?w=200&h=200&fit=crop",
         unlockRequirement: 500, // 500 correct answers
         personality: "Legendary and serverless",
         description: "A legendary demon that appears only when you master serverless!",
