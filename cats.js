@@ -1,7 +1,7 @@
 // AWS Spooky Academy - Halloween Creature Data and Behaviors
 const catBreeds = {
     tabby: {
-        name: "Whiskers",
+        name: "Spooky",
         breed: "Pumpkin Ghost",
         emoji: "🎃",
         image: "https://images.unsplash.com/photo-1509557965875-b88c97052f0e?w=200&h=200&fit=crop",
@@ -14,7 +14,7 @@ const catBreeds = {
         petCost: 20
     },
     siamese: {
-        name: "Azure",
+        name: "Shadow",
         breed: "Phantom Spirit",
         emoji: "👻",
         image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=200&h=200&fit=crop",
@@ -27,7 +27,7 @@ const catBreeds = {
         petCost: 25
     },
     persian: {
-        name: "Fluffy",
+        name: "Salem",
         breed: "Witch's Familiar",
         emoji: "🧙",
         image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=200&h=200&fit=crop",
@@ -40,7 +40,7 @@ const catBreeds = {
         petCost: 30
     },
     mainecoon: {
-        name: "Network",
+        name: "Dracula",
         breed: "Vampire Bat",
         emoji: "🦇",
         image: "https://images.unsplash.com/photo-1635241161466-541f065683ba?w=200&h=200&fit=crop",
@@ -53,7 +53,7 @@ const catBreeds = {
         petCost: 35
     },
     british: {
-        name: "Secure",
+        name: "Bones",
         breed: "Skeleton Guardian",
         emoji: "💀",
         image: "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop",
@@ -66,7 +66,7 @@ const catBreeds = {
         petCost: 40
     },
     golden: {
-        name: "Lambda",
+        name: "Lucifer",
         breed: "Demon Lord",
         emoji: "😈",
         image: "https://images.unsplash.com/photo-1587407627257-27672ab5b6e4?w=200&h=200&fit=crop",
