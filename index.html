@@ -345,65 +345,65 @@
             // Define cat unlock requirements based on total correct answers
             const catDefinitions = [
                 {
-                    name: "Whiskers",
-                    breed: "Orange Tabby",
-                    image: "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=200&h=200&fit=crop&crop=face", // Orange tabby cat
+                    name: "Spooky",
+                    breed: "Pumpkin Ghost",
+                    image: "https://images.unsplash.com/photo-1509557965875-b88c97052f0e?w=200&h=200&fit=crop",
                     unlockRequirement: 0, // Always unlocked
                     baseHappiness: 85
                 },
                 {
-                    name: "Azure",
-                    breed: "Siamese",
-                    image: "https://images.unsplash.com/photo-1606214174585-fe31582dc6ee?w=200&h=200&fit=crop&crop=face", // Siamese cat with blue eyes
+                    name: "Shadow",
+                    breed: "Phantom Spirit",
+                    image: "https://images.unsplash.com/photo-1603048588665-791ca8aea617?w=200&h=200&fit=crop",
                     unlockRequirement: 5, // Unlock after 5 correct answers
                     baseHappiness: 70
                 },
                 {
-                    name: "Shadow",
-                    breed: "Black Cat",
-                    image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=200&h=200&fit=crop&crop=face", // Black cat
+                    name: "Salem",
+                    breed: "Witch's Familiar",
+                    image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=200&h=200&fit=crop",
                     unlockRequirement: 10, // Unlock after 10 correct answers
                     baseHappiness: 90
                 },
                 {
-                    name: "Luna",
-                    breed: "Russian Blue",
-                    image: "https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=200&h=200&fit=crop&crop=face", // Russian Blue cat
+                    name: "Dracula",
+                    breed: "Vampire Bat",
+                    image: "https://images.unsplash.com/photo-1635241161466-541f065683ba?w=200&h=200&fit=crop",
                     unlockRequirement: 15, // Unlock after 15 correct answers
                     baseHappiness: 75
                 },
                 {
-                    name: "Fluffy",
-                    breed: "Persian",
-                    image: "https://images.unsplash.com/photo-1571566882372-1598d88abd90?w=200&h=200&fit=crop&crop=face", // Persian cat with long fur
+                    name: "Bones",
+                    breed: "Skeleton Guardian",
+                    image: "https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?w=200&h=200&fit=crop",
                     unlockRequirement: 25, // Unlock after 25 correct answers
                     baseHappiness: 80
                 },
                 {
-                    name: "Network",
-                    breed: "Maine Coon",
-                    image: "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=200&h=200&fit=crop&crop=face", // Maine Coon - large fluffy cat
+                    name: "Lucifer",
+                    breed: "Demon Lord",
+                    image: "https://images.unsplash.com/photo-1587407627257-27672ab5b6e4?w=200&h=200&fit=crop",
                     unlockRequirement: 35, // Unlock after 35 correct answers
                     baseHappiness: 85
                 },
                 {
-                    name: "Secure",
-                    breed: "British Shorthair",
-                    image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=200&h=200&fit=crop&crop=face", // British Shorthair - round face
+                    name: "Grim",
+                    breed: "Reaper's Shadow",
+                    image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=200&h=200&fit=crop&crop=face",
                     unlockRequirement: 50, // Unlock after 50 correct answers
                     baseHappiness: 90
                 },
                 {
-                    name: "Lambda",
-                    breed: "Golden Cat",
-                    image: "https://images.unsplash.com/photo-1608848461950-0fe51dfc41cb?w=200&h=200&fit=crop&crop=face", // Golden/cream colored cat
+                    name: "Hex",
+                    breed: "Dark Sorcerer",
+                    image: "https://images.unsplash.com/photo-1608848461950-0fe51dfc41cb?w=200&h=200&fit=crop&crop=face",
                     unlockRequirement: 75, // Unlock after 75 correct answers (rare!)
                     baseHappiness: 95
                 },
                 {
-                    name: "CloudMaster",
-                    breed: "Legendary Cat",
-                    image: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=200&h=200&fit=crop&crop=face", // Majestic white cat
+                    name: "Nightmare",
+                    breed: "Legendary Phantom",
+                    image: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=200&h=200&fit=crop&crop=face",
                     unlockRequirement: 100, // Unlock after 100 correct answers (legendary!)
                     baseHappiness: 100
                 }
@@ -887,7 +887,7 @@
         // Check for newly unlocked cats
         function checkForNewUnlocks(previousCorrect, newCorrect) {
             const unlockThresholds = [0, 5, 10, 15, 25, 35, 50, 75, 100];
-            const catNames = ["Whiskers", "Azure", "Shadow", "Luna", "Fluffy", "Network", "Secure", "Lambda", "CloudMaster"];
+            const catNames = ["Spooky", "Shadow", "Salem", "Dracula", "Bones", "Lucifer", "Grim", "Hex", "Nightmare"];
 
             const newlyUnlocked = [];
 
@@ -913,15 +913,15 @@
             if (!catHappinessData[catName]) {
                 // Initialize with base happiness if not exists
                 const baseHappiness = {
-                    "Whiskers": 85,
-                    "Azure": 70,
-                    "Shadow": 90,
-                    "Luna": 75,
-                    "Fluffy": 80,
-                    "Network": 85,
-                    "Secure": 90,
-                    "Lambda": 95,
-                    "CloudMaster": 100
+                    "Spooky": 85,
+                    "Shadow": 70,
+                    "Salem": 90,
+                    "Dracula": 75,
+                    "Bones": 80,
+                    "Lucifer": 85,
+                    "Grim": 90,
+                    "Hex": 95,
+                    "Nightmare": 100
                 };
                 catHappinessData[catName] = {
                     happiness: baseHappiness[catName] || 80,
@@ -1013,7 +1013,7 @@
                     icon: '☁️',
                     title: 'AWS Fundamentals',
                     description: 'Start your cloud journey',
-                    catUnlock: { name: 'Whiskers', requirement: 0 }
+                    catUnlock: { name: 'Spooky', requirement: 0 }
                 },
                 {
                     id: 'compute',
