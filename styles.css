@@ -106,10 +106,10 @@ body {
 
 /* Welcome Screen */
 .welcome-card {
-    background: rgba(12, 12, 20, 0.98);
+    background: rgba(3, 3, 5, 0.99);
     border-radius: 25px;
     padding: 40px;
-    box-shadow: 0 10px 40px rgba(255, 140, 0, 0.3);
+    box-shadow: 0 10px 40px rgba(255, 140, 0, 0.4), inset 0 0 50px rgba(0, 0, 0, 0.8);
     border: 3px solid #ff8c00;
     text-align: center;
 }
@@ -277,7 +277,7 @@ body {
 }
 
 .btn.secondary {
-    background: rgba(15, 15, 25, 0.95);
+    background: rgba(5, 5, 8, 0.98);
     color: #ff8c00;
     border: 2px solid #ff8c00;
 }
@@ -294,10 +294,10 @@ body {
 
 /* Quiz Screen */
 .quiz-container {
-    background: rgba(20, 20, 35, 0.98);
+    background: rgba(5, 5, 8, 0.98);
     border-radius: 25px;
     padding: 30px;
-    box-shadow: 0 10px 40px rgba(255, 140, 0, 0.3);
+    box-shadow: 0 10px 40px rgba(255, 140, 0, 0.4);
     border: 3px solid #ff8c00;
 }
 
@@ -405,8 +405,8 @@ body {
 }
 
 .answer-option {
-    background: rgba(15, 15, 25, 0.9);
-    border: 3px solid #444;
+    background: rgba(5, 5, 8, 0.95);
+    border: 3px solid #555;
     border-radius: 15px;
     padding: 20px;
     cursor: pointer;
@@ -414,7 +414,7 @@ body {
     text-align: left;
     font-size: 1rem;
     font-weight: 500;
-    color: #f5f5f5;
+    color: #f0f0f0;
 }
 
 .answer-option:hover {
@@ -516,7 +516,7 @@ body {
 }
 
 .cat-card {
-    background: rgba(15, 15, 25, 0.95);
+    background: rgba(5, 5, 8, 0.98);
     border: 3px solid #ff8c00;
     border-radius: 20px;
     padding: 20px;
@@ -1678,7 +1678,7 @@ reen Enhancements */
     justify-content: space-between;
     align-items: center;
     font-size: 0.9rem;
-    color: #636e72;
+    color: #d0d0d0;
     font-weight: 600;
 }
 
@@ -1757,12 +1757,12 @@ reen Enhancements */
 
 .question-text {
     font-size: 1.3rem;
-    color: #f5f5f5;
+    color: #ffa500;
     margin-bottom: 25px;
     line-height: 1.6;
     font-weight: 600;
     padding: 20px;
-    background: rgba(138, 43, 226, 0.2);
+    background: rgba(10, 10, 15, 0.9);
     border-radius: 15px;
     border-left: 5px solid #8a2be2;
 }
@@ -1862,9 +1862,9 @@ reen Enhancements */
 .feedback-area {
     margin-top: 30px;
     padding: 25px;
-    background: rgba(116, 185, 255, 0.1);
+    background: rgba(10, 10, 15, 0.9);
     border-radius: 20px;
-    border: 2px solid #74b9ff;
+    border: 2px solid #8a2be2;
     text-align: center;
     animation: slideDown 0.5s ease;
 }
@@ -1896,18 +1896,18 @@ reen Enhancements */
 .feedback-message {
     font-size: 1.3rem;
     font-weight: bold;
-    color: #2d3436;
+    color: #ff8c00;
 }
 
 .explanation {
     font-size: 1rem;
-    color: #636e72;
+    color: #d0d0d0;
     margin-bottom: 20px;
     line-height: 1.6;
     padding: 15px;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(5, 5, 8, 0.8);
     border-radius: 10px;
-    border-left: 4px solid #74b9ff;
+    border-left: 4px solid #8a2be2;
 }
 
 /* Results Screen */
@@ -1921,8 +1921,8 @@ reen Enhancements */
 
 .result-stat {
     text-align: center;
-    background: rgba(116, 185, 255, 0.1);
-    border: 2px solid #74b9ff;
+    background: rgba(10, 10, 15, 0.9);
+    border: 2px solid #8a2be2;
     border-radius: 20px;
     padding: 25px;
     min-width: 150px;
@@ -1931,19 +1931,19 @@ reen Enhancements */
 .result-number {
     font-size: 3rem;
     font-weight: bold;
-    color: #e17055;
+    color: #ff8c00;
     margin-bottom: 10px;
 }
 
 .result-label {
     font-size: 1.1rem;
-    color: #636e72;
+    color: #d0d0d0;
     font-weight: 600;
 }
 
 .results-unlocks {
-    background: rgba(253, 121, 168, 0.1);
-    border: 2px solid #fd79a8;
+    background: rgba(10, 10, 15, 0.9);
+    border: 2px solid #ff8c00;
     border-radius: 20px;
     padding: 25px;
     margin: 30px 0;
@@ -1951,13 +1951,13 @@ reen Enhancements */
 }
 
 .results-unlocks h3 {
-    color: #e17055;
+    color: #ff8c00;
     margin-bottom: 15px;
     font-size: 1.4rem;
 }
 
 .results-unlocks p {
-    color: #636e72;
+    color: #d0d0d0;
     font-size: 1.1rem;
     margin: 0;
 }
@@ -2321,16 +2321,16 @@ nd Readability Improvements */
     align-items: flex-start;
     gap: 15px;
     padding: 20px;
-    background: rgba(138, 43, 226, 0.15);
+    background: rgba(10, 10, 15, 0.9);
     border-radius: 15px;
     border-left: 4px solid #8a2be2;
     transition: all 0.3s ease;
 }
 
 .instruction-item:hover {
-    background: rgba(138, 43, 226, 0.25);
+    background: rgba(138, 43, 226, 0.3);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
 }
 
 .instruction-icon {
@@ -2360,7 +2360,7 @@ nd Readability Improvements */
 }
 
 .quick-tips {
-    background: rgba(255, 140, 0, 0.15);
+    background: rgba(10, 10, 15, 0.9);
     border-radius: 15px;
     padding: 20px;
     border-left: 4px solid #ff8c00;
@@ -2767,7 +2767,7 @@ chievements Page Styling */
 }
 
 .achievement-card {
-    background: rgba(15, 15, 25, 0.95);
+    background: rgba(5, 5, 8, 0.98);
     border-radius: 15px;
     padding: 20px;
     display: flex;
