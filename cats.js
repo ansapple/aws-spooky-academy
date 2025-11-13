@@ -1,13 +1,13 @@
-// AWS Certificate Cat Game - Cat Data and Behaviors
+// AWS Spooky Academy - Halloween Creature Data and Behaviors
 const catBreeds = {
     tabby: {
         name: "Whiskers",
-        breed: "Orange Tabby",
-        emoji: "🐱",
+        breed: "Pumpkin Ghost",
+        emoji: "🎃",
         image: "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=200&h=200&fit=crop&crop=face",
         unlockRequirement: 0, // Always available
-        personality: "Friendly and encouraging",
-        description: "Your first study buddy who loves AWS fundamentals!",
+        personality: "Spooky and encouraging",
+        description: "Your first haunted study buddy who loves AWS fundamentals!",
         happinessDecay: 0.5, // Points lost per hour
         feedCost: 50,
         treatCost: 30,
@@ -15,12 +15,12 @@ const catBreeds = {
     },
     siamese: {
         name: "Azure",
-        breed: "Siamese",
-        emoji: "🐈",
+        breed: "Phantom Spirit",
+        emoji: "👻",
         image: "https://images.unsplash.com/photo-1513245543132-31f507417b26?w=200&h=200&fit=crop&crop=face",
         unlockRequirement: 50, // 50 correct answers
-        personality: "Elegant and intelligent",
-        description: "A sophisticated cat who excels at compute services!",
+        personality: "Mysterious and intelligent",
+        description: "A ghostly creature who excels at compute services!",
         happinessDecay: 0.7,
         feedCost: 60,
         treatCost: 35,
@@ -28,12 +28,12 @@ const catBreeds = {
     },
     persian: {
         name: "Fluffy",
-        breed: "Persian",
-        emoji: "😺",
+        breed: "Witch's Familiar",
+        emoji: "🧙",
         image: "https://images.unsplash.com/photo-1571566882372-1598d88abd90?w=200&h=200&fit=crop&crop=face",
         unlockRequirement: 100, // 100 correct answers
-        personality: "Luxurious and storage-focused",
-        description: "A fluffy expert in all things storage and databases!",
+        personality: "Magical and storage-focused",
+        description: "A mystical expert in all things storage and databases!",
         happinessDecay: 0.8,
         feedCost: 70,
         treatCost: 40,
@@ -41,12 +41,12 @@ const catBreeds = {
     },
     mainecoon: {
         name: "Network",
-        breed: "Maine Coon",
-        emoji: "😸",
+        breed: "Vampire Bat",
+        emoji: "🦇",
         image: "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=200&h=200&fit=crop&crop=face",
         unlockRequirement: 200, // 200 correct answers
-        personality: "Large and networking-savvy",
-        description: "A big cat with big knowledge of VPCs and networking!",
+        personality: "Nocturnal and networking-savvy",
+        description: "A night creature with vast knowledge of VPCs and networking!",
         happinessDecay: 1.0,
         feedCost: 80,
         treatCost: 45,
@@ -54,12 +54,12 @@ const catBreeds = {
     },
     british: {
         name: "Secure",
-        breed: "British Shorthair",
-        emoji: "😻",
+        breed: "Skeleton Guardian",
+        emoji: "💀",
         image: "https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=200&h=200&fit=crop&crop=face",
         unlockRequirement: 300, // 300 correct answers
-        personality: "Dignified and security-conscious",
-        description: "A proper cat who takes security and IAM very seriously!",
+        personality: "Protective and security-conscious",
+        description: "A bony guardian who takes security and IAM very seriously!",
         happinessDecay: 1.2,
         feedCost: 90,
         treatCost: 50,
@@ -67,12 +67,12 @@ const catBreeds = {
     },
     golden: {
         name: "Lambda",
-        breed: "Golden Cat",
-        emoji: "😽",
+        breed: "Demon Lord",
+        emoji: "😈",
         image: "https://images.unsplash.com/photo-1608848461950-0fe51dfc41cb?w=200&h=200&fit=crop&crop=face",
         unlockRequirement: 500, // 500 correct answers
-        personality: "Rare and serverless",
-        description: "A legendary cat that appears only when you master serverless!",
+        personality: "Legendary and serverless",
+        description: "A legendary demon that appears only when you master serverless!",
         happinessDecay: 1.5,
         feedCost: 100,
         treatCost: 60,
