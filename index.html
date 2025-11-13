@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Spooky Academy 🎃</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="game-container">
+        <!-- Header -->
+        <header class="game-header">
+            <div class="header-left">
+                <h1 class="game-title">
+                    <a href="#" onclick="showWelcome()" class="home-link">
+                        <span class="cat-emoji">🎃</span>
+                        AWS Spooky Academy
+                    </a>
+                </h1>
+            </div>
+            <div class="stats-panel">
+                <div class="stat-item">
+                    <span class="stat-icon">⭐</span>
+                    <span class="stat-label">Points</span>
+                    <span class="stat-value" id="points">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">🏆</span>
+                    <span class="stat-label">Correct</span>
+                    <span class="stat-value" id="correct-count">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-icon">👻</span>
+                    <span class="stat-label">Creatures</span>
+                    <span class="stat-value" id="cat-count">1</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Game Area -->
+        <main class="game-main">
+            <!-- Welcome Screen -->
+            <div id="welcome-screen" class="screen active">
+                <div class="welcome-card">
+                    <div class="cat-mascot">
+                        <div class="cat-sprite" id="main-cat">
+                            <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=150&h=150&fit=crop&crop=face"
+                                alt="Whiskers" class="main-cat-image">
+                        </div>
+                        <div class="speech-bubble">
+                            <p>Boo! I'm Spooky, your study buddy! 👻</p>
+                            <p>Help me learn AWS by answering questions!</p>
+                        </div>
+                    </div>
+
+                    <!-- Learning Paths -->
+                    <div class="learning-section">
+                        <h2>Choose Your Learning Path 📚</h2>
+                        <div class="categories-grid" id="main-categories-grid">
+                            <!-- Categories will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <!-- How to Play Section -->
+                    <div class="how-to-play">
+                        <div class="how-to-play-header">
+                            <h3>🎮 How to Play</h3>
+                            <button class="toggle-instructions-btn" onclick="toggleInstructions()"
+                                aria-expanded="false">
+                                <span class="toggle-text">Show</span>
+                                <span class="toggle-icon">▼</span>
+                            </button>
+                        </div>
+                        <div class="instructions-content" id="instructions-content" style="display: none;">
+                            <div class="instructions-grid">
+                                <div class="instruction-item">
+                                    <div class="instruction-icon">📚</div>
+                                    <div class="instruction-content">
+                                        <h4>1. Choose a Learning Path</h4>
+                                        <p>Select from AWS Fundamentals, EC2, Storage, Networking, Security, or
+                                            Serverless topics</p>
+                                    </div>
+                                </div>
+                                <div class="instruction-item">
+                                    <div class="instruction-icon">❓</div>
+                                    <div class="instruction-content">
+                                        <h4>2. Answer Questions</h4>
+                                        <p>Take quizzes with real AWS certification questions. Get instant feedback and
+                                            explanations</p>
+                                    </div>
+                                </div>
+                                <div class="instruction-item">
+                                    <div class="instruction-icon">⭐</div>
+                                    <div class="instruction-content">
+                                        <h4>3. Earn Points</h4>
+                                        <p>Score 10 points for each correct answer. Use points to care for your cats</p>
+                                    </div>
+                                </div>
+                                <div class="instruction-item">
+                                    <div class="instruction-icon">🎃</div>
+                                    <div class="instruction-content">
+                                        <h4>4. Unlock Creatures</h4>
+                                        <p>Answer questions correctly to unlock new spooky creatures. Feed, haunt, and give
+                                            treats to keep them spooky</p>
+                                    </div>
+                                </div>
+                                <div class="instruction-item">
+                                    <div class="instruction-icon">🏆</div>
+                                    <div class="instruction-content">
+                                        <h4>5. Track Progress</h4>
+                                        <p>Monitor your learning progress and unlock achievements as you master AWS
+                                            concepts</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="quick-tips">
+                                <h4>💡 Quick Tips</h4>
+                                <ul>
+                                    <li><strong>Start with Fundamentals</strong> if you're new to AWS</li>
+                                    <li><strong>Read explanations</strong> carefully to understand concepts</li>
+                                    <li><strong>Visit your creatures</strong> regularly to keep them spooky</li>
+                                    <li><strong>Aim for 80%+</strong> accuracy to unlock new creatures faster</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation Buttons -->
+                    <div class="nav-buttons">
+                        <button class="btn secondary" onclick="showCatGallery()">
+                            🎃 Visit Your Creatures
+                        </button>
+                        <button class="btn secondary" onclick="showAchievements()">
+                            🏆 View Achievements
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories Screen -->
+            <div id="categories-screen" class="screen">
+                <div class="welcome-card">
+                    <h2>Choose Your Learning Path 📚</h2>
+                    <div class="categories-grid">
+                        <button class="category-btn" onclick="startCategory('fundamentals')">
+                            <div class="category-icon">☁️</div>
+                            <div class="category-info">
+                                <h3>AWS Fundamentals</h3>
+                                <p>Start your cloud journey</p>
+                            </div>
+                        </button>
+
+                        <button class="category-btn" onclick="startCategory('compute')">
+                            <div class="category-icon">💻</div>
+                            <div class="category-info">
+                                <h3>EC2 & Compute</h3>
+                                <p>Virtual machines & servers</p>
+                            </div>
+                        </button>
+
+                        <button class="category-btn" onclick="startCategory('storage')">
+                            <div class="category-icon">💾</div>
+                            <div class="category-info">
+                                <h3>Storage Services</h3>
+                                <p>S3, EBS, and more</p>
+                            </div>
+                        </button>
+                    </div>
+
+                    <div style="margin-top: 20px; text-align: center;">
+                        <button class="btn secondary" onclick="showWelcome()">
+                            ← Back to Home
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cat Gallery Screen -->
+            <div id="cat-gallery-screen" class="screen">
+                <div class="welcome-card">
+                    <h2>Your Creature Collection 🎃</h2>
+                    <p class="gallery-instructions">Click on a creature to select it, then use the actions below!</p>
+
+                    <div id="cats-display" class="cats-grid">
+                        <!-- Cats will be populated by JavaScript -->
+                    </div>
+
+                    <div class="cat-actions">
+                        <button class="btn primary" onclick="feedSelectedCat()">
+                            🍬 Feed Creature (50 points)
+                        </button>
+                        <button class="btn primary" onclick="giveTreat()">
+                            🍭 Give Treat (30 points)
+                        </button>
+                        <button class="btn primary" onclick="petCat()">
+                            👻 Haunt (20 points)
+                        </button>
+                    </div>
+
+                    <div style="margin-top: 20px; text-align: center;">
+                        <button class="btn secondary" onclick="showWelcome()">
+                            ← Back to Home
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quiz Screen -->
+            <div id="quiz-screen" class="screen">
+                <div class="quiz-container">
+                    <!-- Quiz Header -->
+                    <div class="quiz-header">
+                        <div class="quiz-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-fill"></div>
+                            </div>
+                            <div class="progress-text">
+                                <span id="question-counter">Question 1 of 10</span>
+                                <span id="current-category">AWS Fundamentals</span>
+                            </div>
+                        </div>
+                        <button class="btn secondary small" onclick="showWelcome()">
+                            ← Exit Quiz
+                        </button>
+                    </div>
+
+                    <!-- Quiz Content -->
+                    <div class="quiz-content">
+                        <!-- Cat Companion -->
+                        <div class="quiz-cat-companion">
+                            <div class="quiz-cat" id="quiz-cat">🐱</div>
+                            <div class="cat-mood" id="cat-mood">😊</div>
+                            <div class="cat-speech">
+                                <p>Let's learn together! 📚</p>
+                            </div>
+                        </div>
+
+                        <!-- Question Area -->
+                        <div class="question-area">
+                            <div class="question-text" id="question-text">
+                                Loading question...
+                            </div>
+
+                            <div class="answers-grid" id="answers-grid">
+                                <!-- Answer options will be populated by JavaScript -->
+                            </div>
+
+                            <div class="quiz-actions">
+                                <button class="btn primary" id="submit-btn" onclick="submitAnswer()" disabled>
+                                    Submit Answer
+                                </button>
+                                <button class="btn primary" id="next-btn" onclick="nextQuestion()"
+                                    style="display: none;">
+                                    Next Question →
+                                </button>
+                            </div>
+
+                            <!-- Feedback Area -->
+                            <div class="feedback-area" id="feedback-area" style="display: none;">
+                                <div class="feedback-header">
+                                    <span class="cat-reaction" id="cat-reaction">😸</span>
+                                    <span class="feedback-message" id="feedback-message">Great job!</span>
+                                </div>
+                                <div class="explanation" id="explanation">
+                                    Explanation will appear here...
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Screen -->
+            <div id="results-screen" class="screen">
+                <div class="welcome-card">
+                    <h2>Quiz Complete! 🎉</h2>
+
+                    <div class="results-summary">
+                        <div class="result-stat">
+                            <div class="result-number" id="final-correct">8</div>
+                            <div class="result-label">Correct Answers</div>
+                        </div>
+                        <div class="result-stat">
+                            <div class="result-number" id="points-earned">80</div>
+                            <div class="result-label">Points Earned</div>
+                        </div>
+                    </div>
+
+                    <div class="results-unlocks">
+                        <h3>🎁 New Unlocks</h3>
+                        <p id="new-unlocks">Keep studying to unlock more cats!</p>
+                    </div>
+
+                    <div class="results-actions">
+                        <button class="btn primary" onclick="showWelcome()">
+                            🏠 Back to Home
+                        </button>
+                        <button class="btn secondary" onclick="showCatGallery()">
+                            🎃 Visit Your Creatures
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements Screen -->
+            <div id="achievements-screen" class="screen">
+                <div class="welcome-card">
+                    <h2>Achievements 🏆</h2>
+                    <div class="achievements-grid" id="achievements-grid">
+                        <!-- Achievements will be populated by JavaScript -->
+                    </div>
+
+                    <div style="margin-top: 20px; text-align: center;">
+                        <button class="btn secondary" onclick="showWelcome()">
+                            ← Back to Home
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Game Script -->
+    <script>
+
+        function showCatGallery() {
+            // Hide all screens
+            const screens = document.querySelectorAll('.screen');
+            screens.forEach(screen => screen.classList.remove('active'));
+
+            // Show cat gallery screen
+            const catGalleryScreen = document.getElementById('cat-gallery-screen');
+            if (catGalleryScreen) {
+                catGalleryScreen.classList.add('active');
+                populateCatGallery();
+            }
+        }
+
+        function populateCatGallery() {
+            const catsDisplay = document.getElementById('cats-display');
+            if (!catsDisplay) return;
+
+            // Define cat unlock requirements based on total correct answers
+            const catDefinitions = [
+                {
+                    name: "Whiskers",
+                    breed: "Orange Tabby",
+                    image: "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?w=200&h=200&fit=crop&crop=face", // Orange tabby cat
+                    unlockRequirement: 0, // Always unlocked
+                    baseHappiness: 85
+                },
+                {
+                    name: "Azure",
+                    breed: "Siamese",
+                    image: "https://images.unsplash.com/photo-1606214174585-fe31582dc6ee?w=200&h=200&fit=crop&crop=face", // Siamese cat with blue eyes
+                    unlockRequirement: 5, // Unlock after 5 correct answers
+                    baseHappiness: 70
+                },
+                {
+                    name: "Shadow",
+                    breed: "Black Cat",
+                    image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=200&h=200&fit=crop&crop=face", // Black cat
+                    unlockRequirement: 10, // Unlock after 10 correct answers
+                    baseHappiness: 90
+                },
+                {
+                    name: "Luna",
+                    breed: "Russian Blue",
+                    image: "https://images.unsplash.com/photo-1596854407944-bf87f6fdd49e?w=200&h=200&fit=crop&crop=face", // Russian Blue cat
+                    unlockRequirement: 15, // Unlock after 15 correct answers
+                    baseHappiness: 75
+                },
+                {
+                    name: "Fluffy",
+                    breed: "Persian",
+                    image: "https://images.unsplash.com/photo-1571566882372-1598d88abd90?w=200&h=200&fit=crop&crop=face", // Persian cat with long fur
+                    unlockRequirement: 25, // Unlock after 25 correct answers
+                    baseHappiness: 80
+                },
+                {
+                    name: "Network",
+                    breed: "Maine Coon",
+                    image: "https://images.unsplash.com/photo-1574158622682-e40e69881006?w=200&h=200&fit=crop&crop=face", // Maine Coon - large fluffy cat
+                    unlockRequirement: 35, // Unlock after 35 correct answers
+                    baseHappiness: 85
+                },
+                {
+                    name: "Secure",
+                    breed: "British Shorthair",
+                    image: "https://images.unsplash.com/photo-1533738363-b7f9aef128ce?w=200&h=200&fit=crop&crop=face", // British Shorthair - round face
+                    unlockRequirement: 50, // Unlock after 50 correct answers
+                    baseHappiness: 90
+                },
+                {
+                    name: "Lambda",
+                    breed: "Golden Cat",
+                    image: "https://images.unsplash.com/photo-1608848461950-0fe51dfc41cb?w=200&h=200&fit=crop&crop=face", // Golden/cream colored cat
+                    unlockRequirement: 75, // Unlock after 75 correct answers (rare!)
+                    baseHappiness: 95
+                },
+                {
+                    name: "CloudMaster",
+                    breed: "Legendary Cat",
+                    image: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=200&h=200&fit=crop&crop=face", // Majestic white cat
+                    unlockRequirement: 100, // Unlock after 100 correct answers (legendary!)
+                    baseHappiness: 100
+                }
+            ];
+
+            // Create cats array based on current progress
+            const cats = catDefinitions.map(catDef => {
+                const isUnlocked = totalCorrectAnswers >= catDef.unlockRequirement;
+                const catData = isUnlocked ? getCatHappiness(catDef.name) : null;
+
+                return {
+                    name: catDef.name,
+                    breed: catDef.breed,
+                    image: catDef.image,
+                    happiness: isUnlocked ? catData.happiness : 0,
+                    unlocked: isUnlocked,
+                    unlockRequirement: catDef.unlockRequirement,
+                    stats: catData
+                };
+            });
+
+            catsDisplay.innerHTML = '';
+
+            cats.forEach((cat, index) => {
+                const catCard = document.createElement('div');
+                catCard.className = 'cat-card';
+                if (!cat.unlocked) catCard.classList.add('locked');
+                if (index === 0) catCard.classList.add('selected'); // Select first cat by default
+
+                catCard.innerHTML = `
+                    <div class="cat-avatar ${!cat.unlocked ? 'locked' : ''}">
+                        ${cat.unlocked ?
+                        `<img src="${cat.image}" alt="${cat.name}" class="cat-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                             <div class="cat-image-loading" style="display: none;">🐱</div>`
+                        :
+                        `<div class="cat-image-loading">🔒</div>`
+                    }
+                    </div>
+                    <div class="cat-name">${cat.name}</div>
+                    <div class="cat-breed">${cat.breed}</div>
+                    <div class="cat-happiness">${cat.unlocked ?
+                        `Happiness: ${cat.happiness}%` :
+                        `Unlock: ${cat.unlockRequirement} correct answers (${totalCorrectAnswers}/${cat.unlockRequirement})`
+                    }</div>
+                `;
+
+                if (cat.unlocked) {
+                    catCard.onclick = () => selectCat(catCard, cat);
+                }
+
+                catsDisplay.appendChild(catCard);
+            });
+        }
+
+        function selectCat(cardElement, cat) {
+            // Remove selection from all cards
+            document.querySelectorAll('.cat-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+
+            // Select this card
+            cardElement.classList.add('selected');
+        }
+
+        function showWelcome() {
+            const screens = document.querySelectorAll('.screen');
+            screens.forEach(screen => screen.classList.remove('active'));
+            const welcomeScreen = document.getElementById('welcome-screen');
+            if (welcomeScreen) {
+                welcomeScreen.classList.add('active');
+            }
+        }
+
+        function showAchievements() {
+            const screens = document.querySelectorAll('.screen');
+            screens.forEach(screen => screen.classList.remove('active'));
+            const achievementsScreen = document.getElementById('achievements-screen');
+            if (achievementsScreen) {
+                achievementsScreen.classList.add('active');
+                populateAchievements();
+            }
+        }
+
+        // Define achievements
+        function getAchievements() {
+            return [
+                {
+                    id: 'first_steps',
+                    title: 'First Steps',
+                    description: 'Answer your first question correctly',
+                    icon: '🐾',
+                    requirement: 1,
+                    type: 'correct_answers'
+                },
+                {
+                    id: 'cat_whisperer',
+                    title: 'Cat Whisperer',
+                    description: 'Answer 10 questions correctly',
+                    icon: '🗣️',
+                    requirement: 10,
+                    type: 'correct_answers'
+                },
+                {
+                    id: 'aws_student',
+                    title: 'AWS Student',
+                    description: 'Answer 25 questions correctly',
+                    icon: '📚',
+                    requirement: 25,
+                    type: 'correct_answers'
+                },
+                {
+                    id: 'cloud_expert',
+                    title: 'Cloud Expert',
+                    description: 'Answer 50 questions correctly',
+                    icon: '☁️',
+                    requirement: 50,
+                    type: 'correct_answers'
+                },
+                {
+                    id: 'aws_master',
+                    title: 'AWS Master',
+                    description: 'Answer 100 questions correctly',
+                    icon: '🏆',
+                    requirement: 100,
+                    type: 'correct_answers'
+                },
+                {
+                    id: 'cat_collector',
+                    title: 'Cat Collector',
+                    description: 'Unlock 3 different cats',
+                    icon: '🐱',
+                    requirement: 3,
+                    type: 'cats_unlocked'
+                },
+                {
+                    id: 'cat_cafe_owner',
+                    title: 'Cat Cafe Owner',
+                    description: 'Unlock 5 different cats',
+                    icon: '🏠',
+                    requirement: 5,
+                    type: 'cats_unlocked'
+                },
+                {
+                    id: 'cat_sanctuary',
+                    title: 'Cat Sanctuary',
+                    description: 'Unlock all 9 cats',
+                    icon: '🌟',
+                    requirement: 9,
+                    type: 'cats_unlocked'
+                },
+                {
+                    id: 'caring_owner',
+                    title: 'Caring Owner',
+                    description: 'Feed cats 10 times',
+                    icon: '🍽️',
+                    requirement: 10,
+                    type: 'total_feeds'
+                },
+                {
+                    id: 'treat_master',
+                    title: 'Treat Master',
+                    description: 'Give 20 treats to cats',
+                    icon: '🍪',
+                    requirement: 20,
+                    type: 'total_treats'
+                },
+                {
+                    id: 'petting_pro',
+                    title: 'Petting Pro',
+                    description: 'Pet cats 30 times',
+                    icon: '🤚',
+                    requirement: 30,
+                    type: 'total_pets'
+                },
+                {
+                    id: 'happy_cats',
+                    title: 'Happy Cats',
+                    description: 'Have a cat reach 100% happiness',
+                    icon: '😻',
+                    requirement: 100,
+                    type: 'max_happiness'
+                },
+                {
+                    id: 'point_collector',
+                    title: 'Point Collector',
+                    description: 'Earn 500 total points',
+                    icon: '⭐',
+                    requirement: 500,
+                    type: 'total_points'
+                },
+                {
+                    id: 'quiz_master',
+                    title: 'Quiz Master',
+                    description: 'Complete 10 quizzes',
+                    icon: '🎯',
+                    requirement: 10,
+                    type: 'quizzes_completed'
+                }
+            ];
+        }
+
+        // Check achievement progress
+        function checkAchievementProgress(achievement) {
+            switch (achievement.type) {
+                case 'correct_answers':
+                    return totalCorrectAnswers;
+                case 'cats_unlocked':
+                    return Math.min(9, Math.floor(totalCorrectAnswers / 5)); // Rough estimate based on unlock thresholds
+                case 'total_feeds':
+                    return Object.values(catHappinessData).reduce((sum, cat) => sum + (cat.totalFeeds || 0), 0);
+                case 'total_treats':
+                    return Object.values(catHappinessData).reduce((sum, cat) => sum + (cat.totalTreats || 0), 0);
+                case 'total_pets':
+                    return Object.values(catHappinessData).reduce((sum, cat) => sum + (cat.totalPets || 0), 0);
+                case 'max_happiness':
+                    return Math.max(0, ...Object.values(catHappinessData).map(cat => cat.happiness || 0));
+                case 'total_points':
+                    return gamePoints;
+                case 'quizzes_completed':
+                    return parseInt(localStorage.getItem('awsCatAcademyQuizzes')) || 0;
+                default:
+                    return 0;
+            }
+        }
+
+        // Populate achievements page
+        function populateAchievements() {
+            const achievementsGrid = document.getElementById('achievements-grid');
+            if (!achievementsGrid) return;
+
+            const achievements = getAchievements();
+            achievementsGrid.innerHTML = '';
+
+            achievements.forEach(achievement => {
+                const progress = checkAchievementProgress(achievement);
+                const isUnlocked = progress >= achievement.requirement;
+                const progressPercent = Math.min(100, (progress / achievement.requirement) * 100);
+
+                const achievementCard = document.createElement('div');
+                achievementCard.className = `achievement-card ${isUnlocked ? 'unlocked' : 'locked'}`;
+
+                achievementCard.innerHTML = `
+                    <div class="achievement-icon ${isUnlocked ? 'unlocked' : ''}">${achievement.icon}</div>
+                    <div class="achievement-content">
+                        <div class="achievement-title">${achievement.title}</div>
+                        <div class="achievement-description">${achievement.description}</div>
+                        <div class="achievement-progress">
+                            <div class="progress-bar-small">
+                                <div class="progress-fill-small" style="width: ${progressPercent}%"></div>
+                            </div>
+                            <div class="progress-text-small">${progress}/${achievement.requirement}</div>
+                        </div>
+                        ${isUnlocked ? '<div class="achievement-unlocked">✅ UNLOCKED</div>' : ''}
+                    </div>
+                `;
+
+                achievementsGrid.appendChild(achievementCard);
+            });
+        }
+
+        // Quiz state
+        let currentQuiz = {
+            category: null,
+            questions: [],
+            currentIndex: 0,
+            score: 0,
+            selectedAnswer: null
+        };
+
+        function startCategory(category) {
+            // Check if we have questions for this category
+            if (typeof questionBank === 'undefined' || !questionBank[category]) {
+                alert(`Questions for ${category} are not available yet! 🐱`);
+                return;
+            }
+
+            // Initialize quiz
+            currentQuiz.category = category;
+            currentQuiz.questions = shuffleArray([...questionBank[category]]).slice(0, 10); // Take 10 random questions
+            currentQuiz.currentIndex = 0;
+            currentQuiz.score = 0;
+            currentQuiz.selectedAnswer = null;
+
+            // Show quiz screen
+            const screens = document.querySelectorAll('.screen');
+            screens.forEach(screen => screen.classList.remove('active'));
+            const quizScreen = document.getElementById('quiz-screen');
+            if (quizScreen) {
+                quizScreen.classList.add('active');
+                displayQuestion();
+            }
+        }
+
+        function shuffleArray(array) {
+            const shuffled = [...array];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            return shuffled;
+        }
+
+        function displayQuestion() {
+            const question = currentQuiz.questions[currentQuiz.currentIndex];
+
+            // Update progress
+            const progressFill = document.getElementById('progress-fill');
+            const questionCounter = document.getElementById('question-counter');
+            const currentCategory = document.getElementById('current-category');
+
+            if (progressFill) {
+                const progress = (currentQuiz.currentIndex / currentQuiz.questions.length) * 100;
+                progressFill.style.width = `${progress}%`;
+            }
+
+            if (questionCounter) {
+                questionCounter.textContent = `Question ${currentQuiz.currentIndex + 1} of ${currentQuiz.questions.length}`;
+            }
+
+            if (currentCategory) {
+                const categoryNames = {
+                    fundamentals: 'AWS Fundamentals',
+                    compute: 'EC2 & Compute',
+                    storage: 'Storage Services',
+                    networking: 'Networking & VPC',
+                    security: 'Security & IAM',
+                    serverless: 'Serverless',
+                    databases: 'Databases',
+                    monitoring: 'Monitoring & Analytics',
+                    devops: 'DevOps & Deployment'
+                };
+                currentCategory.textContent = categoryNames[currentQuiz.category] || currentQuiz.category;
+            }
+
+            // Display question
+            const questionText = document.getElementById('question-text');
+            if (questionText) {
+                questionText.textContent = question.question;
+            }
+
+            // Display answers
+            const answersGrid = document.getElementById('answers-grid');
+            if (answersGrid) {
+                answersGrid.innerHTML = '';
+                question.answers.forEach((answer, index) => {
+                    const answerBtn = document.createElement('button');
+                    answerBtn.className = 'answer-option';
+                    answerBtn.textContent = answer;
+                    answerBtn.onclick = () => selectAnswer(index);
+                    answersGrid.appendChild(answerBtn);
+                });
+            }
+
+            // Reset buttons
+            const submitBtn = document.getElementById('submit-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Submit Answer';
+                submitBtn.style.display = 'inline-block';
+            }
+
+            if (nextBtn) {
+                nextBtn.style.display = 'none';
+            }
+
+            // Hide feedback
+            const feedbackArea = document.getElementById('feedback-area');
+            if (feedbackArea) {
+                feedbackArea.style.display = 'none';
+            }
+
+            currentQuiz.selectedAnswer = null;
+        }
+
+        function selectAnswer(index) {
+            // Remove previous selections
+            document.querySelectorAll('.answer-option').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+
+            // Mark selected answer
+            const answerButtons = document.querySelectorAll('.answer-option');
+            if (answerButtons[index]) {
+                answerButtons[index].classList.add('selected');
+                currentQuiz.selectedAnswer = index;
+
+                // Enable submit button
+                const submitBtn = document.getElementById('submit-btn');
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                }
+            }
+        }
+
+        function submitAnswer() {
+            if (currentQuiz.selectedAnswer === null) return;
+
+            const question = currentQuiz.questions[currentQuiz.currentIndex];
+            const isCorrect = currentQuiz.selectedAnswer === question.correct;
+            const answerButtons = document.querySelectorAll('.answer-option');
+
+            // Update score
+            if (isCorrect) {
+                currentQuiz.score++;
+            }
+
+            // Show correct/incorrect styling
+            answerButtons[question.correct].classList.add('correct');
+            if (!isCorrect) {
+                answerButtons[currentQuiz.selectedAnswer].classList.add('incorrect');
+            }
+
+            // Show feedback
+            const feedbackArea = document.getElementById('feedback-area');
+            const catReaction = document.getElementById('cat-reaction');
+            const feedbackMessage = document.getElementById('feedback-message');
+            const explanation = document.getElementById('explanation');
+            const submitBtn = document.getElementById('submit-btn');
+            const nextBtn = document.getElementById('next-btn');
+
+            if (feedbackArea) {
+                feedbackArea.style.display = 'block';
+            }
+
+            if (catReaction) {
+                catReaction.textContent = isCorrect ? '😻' : '😿';
+            }
+
+            if (feedbackMessage) {
+                feedbackMessage.textContent = isCorrect ?
+                    'Purr-fect! Your cat is so proud! 🐱' :
+                    'That\'s okay! Even cats make mistakes. Try again! 😸';
+            }
+
+            if (explanation) {
+                explanation.textContent = question.explanation;
+            }
+
+            // Switch buttons: hide Submit, show Next
+            if (submitBtn) {
+                submitBtn.style.display = 'none';
+            }
+
+            if (nextBtn) {
+                nextBtn.style.display = 'inline-block';
+            }
+        }
+
+        function nextQuestion() {
+            currentQuiz.currentIndex++;
+
+            if (currentQuiz.currentIndex >= currentQuiz.questions.length) {
+                showQuizResults();
+            } else {
+                displayQuestion();
+            }
+        }
+
+        // Global game state for points tracking
+        let gamePoints = parseInt(localStorage.getItem('awsCatAcademyPoints')) || 0;
+        let totalCorrectAnswers = parseInt(localStorage.getItem('awsCatAcademyCorrect')) || 0;
+
+        // Cat happiness data - stored in localStorage
+        let catHappinessData = JSON.parse(localStorage.getItem('awsCatHappiness')) || {};
+
+        // Update the header display
+        function updateHeaderStats() {
+            const pointsElement = document.getElementById('points');
+            const correctElement = document.getElementById('correct-count');
+
+            if (pointsElement) {
+                pointsElement.textContent = gamePoints;
+            }
+            if (correctElement) {
+                correctElement.textContent = totalCorrectAnswers;
+            }
+        }
+
+        // Check for newly unlocked cats
+        function checkForNewUnlocks(previousCorrect, newCorrect) {
+            const unlockThresholds = [0, 5, 10, 15, 25, 35, 50, 75, 100];
+            const catNames = ["Whiskers", "Azure", "Shadow", "Luna", "Fluffy", "Network", "Secure", "Lambda", "CloudMaster"];
+
+            const newlyUnlocked = [];
+
+            for (let i = 0; i < unlockThresholds.length; i++) {
+                const threshold = unlockThresholds[i];
+                if (previousCorrect < threshold && newCorrect >= threshold) {
+                    newlyUnlocked.push(catNames[i]);
+                }
+            }
+
+            // Show notifications for newly unlocked cats
+            newlyUnlocked.forEach((catName, index) => {
+                setTimeout(() => {
+                    showNotification(`🎉 New cat unlocked: ${catName}! Visit your cat gallery! 🐱`);
+                }, index * 1000); // Stagger notifications
+            });
+
+            return newlyUnlocked;
+        }
+
+        // Cat happiness management
+        function getCatHappiness(catName) {
+            if (!catHappinessData[catName]) {
+                // Initialize with base happiness if not exists
+                const baseHappiness = {
+                    "Whiskers": 85,
+                    "Azure": 70,
+                    "Shadow": 90,
+                    "Luna": 75,
+                    "Fluffy": 80,
+                    "Network": 85,
+                    "Secure": 90,
+                    "Lambda": 95,
+                    "CloudMaster": 100
+                };
+                catHappinessData[catName] = {
+                    happiness: baseHappiness[catName] || 80,
+                    lastUpdate: Date.now(),
+                    totalFeeds: 0,
+                    totalTreats: 0,
+                    totalPets: 0
+                };
+                saveCatHappiness();
+            }
+
+            // Apply happiness decay over time (1% per hour if not cared for)
+            const now = Date.now();
+            const hoursElapsed = (now - catHappinessData[catName].lastUpdate) / (1000 * 60 * 60);
+            const decay = Math.floor(hoursElapsed * 1); // 1% per hour
+
+            if (decay > 0) {
+                catHappinessData[catName].happiness = Math.max(10, catHappinessData[catName].happiness - decay);
+                catHappinessData[catName].lastUpdate = now;
+                saveCatHappiness();
+            }
+
+            return catHappinessData[catName];
+        }
+
+        function updateCatHappiness(catName, happinessChange, actionType) {
+            const catData = getCatHappiness(catName);
+
+            // Update happiness (max 100%)
+            catData.happiness = Math.min(100, catData.happiness + happinessChange);
+            catData.lastUpdate = Date.now();
+
+            // Track action counts
+            if (actionType === 'feed') catData.totalFeeds++;
+            if (actionType === 'treat') catData.totalTreats++;
+            if (actionType === 'pet') catData.totalPets++;
+
+            saveCatHappiness();
+            return catData;
+        }
+
+        function saveCatHappiness() {
+            localStorage.setItem('awsCatHappiness', JSON.stringify(catHappinessData));
+        }
+
+        // Show notification function
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #fd79a8, #e84393);
+                color: white;
+                padding: 15px 20px;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                z-index: 1000;
+                animation: slideInNotification 0.5s ease;
+                max-width: 300px;
+                font-weight: 500;
+            `;
+
+            document.body.appendChild(notification);
+
+            // Remove after 4 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOutNotification 0.5s ease';
+                setTimeout(() => notification.remove(), 500);
+            }, 4000);
+        }
+
+        // Initialize header stats on page load
+        document.addEventListener('DOMContentLoaded', function () {
+            updateHeaderStats();
+            populateMainCategories();
+        });
+
+        // Populate main page learning categories with dynamic cat info
+        function populateMainCategories() {
+            const categoriesGrid = document.getElementById('main-categories-grid');
+            if (!categoriesGrid) return;
+
+            const categories = [
+                {
+                    id: 'fundamentals',
+                    icon: '☁️',
+                    title: 'AWS Fundamentals',
+                    description: 'Start your cloud journey',
+                    catUnlock: { name: 'Whiskers', requirement: 0 }
+                },
+                {
+                    id: 'compute',
+                    icon: '💻',
+                    title: 'EC2 & Compute',
+                    description: 'Virtual machines & servers',
+                    catUnlock: { name: 'Azure', requirement: 5 }
+                },
+                {
+                    id: 'storage',
+                    icon: '💾',
+                    title: 'Storage Services',
+                    description: 'S3, EBS, and more',
+                    catUnlock: { name: 'Shadow', requirement: 10 }
+                },
+                {
+                    id: 'networking',
+                    icon: '🌐',
+                    title: 'Networking & VPC',
+                    description: 'Connect your resources',
+                    catUnlock: { name: 'Luna', requirement: 15 }
+                },
+                {
+                    id: 'security',
+                    icon: '🔐',
+                    title: 'Security & IAM',
+                    description: 'Keep everything secure',
+                    catUnlock: { name: 'Fluffy', requirement: 25 }
+                },
+                {
+                    id: 'serverless',
+                    icon: '⚡',
+                    title: 'Serverless',
+                    description: 'Lambda & API Gateway',
+                    catUnlock: { name: 'Network', requirement: 35 }
+                },
+                {
+                    id: 'databases',
+                    icon: '🗄️',
+                    title: 'Databases',
+                    description: 'RDS, DynamoDB & more',
+                    catUnlock: { name: 'Secure', requirement: 50 }
+                },
+                {
+                    id: 'monitoring',
+                    icon: '📊',
+                    title: 'Monitoring & Analytics',
+                    description: 'CloudWatch, CloudTrail & X-Ray',
+                    catUnlock: { name: 'Lambda', requirement: 75 }
+                },
+                {
+                    id: 'devops',
+                    icon: '🚀',
+                    title: 'DevOps & Deployment',
+                    description: 'CI/CD, CodePipeline & CloudFormation',
+                    catUnlock: { name: 'CloudMaster', requirement: 100 }
+                }
+            ];
+
+            categoriesGrid.innerHTML = '';
+
+            categories.forEach(category => {
+                const isUnlocked = totalCorrectAnswers >= category.catUnlock.requirement;
+                const progress = Math.min(totalCorrectAnswers, category.catUnlock.requirement);
+
+                let catHelperText;
+                if (isUnlocked) {
+                    catHelperText = `🐱 ${category.catUnlock.name} unlocked!`;
+                } else if (category.catUnlock.requirement === 0) {
+                    catHelperText = `🐱 ${category.catUnlock.name} is ready!`;
+                } else {
+                    catHelperText = `🐱 Unlock ${category.catUnlock.name} (${progress}/${category.catUnlock.requirement})`;
+                }
+
+                const categoryBtn = document.createElement('button');
+                categoryBtn.className = 'category-btn';
+                categoryBtn.onclick = () => startCategory(category.id);
+
+                categoryBtn.innerHTML = `
+                    <div class="category-icon">${category.icon}</div>
+                    <div class="category-info">
+                        <h3>${category.title}</h3>
+                        <p>${category.description}</p>
+                        <div class="cat-helper ${isUnlocked ? 'unlocked' : ''}">${catHelperText}</div>
+                    </div>
+                `;
+
+                categoriesGrid.appendChild(categoryBtn);
+            });
+        }
+
+        function showQuizResults() {
+            // Calculate points earned this quiz
+            const pointsEarned = currentQuiz.score * 10;
+            const previousCorrect = totalCorrectAnswers;
+
+            // Add to global totals
+            gamePoints += pointsEarned;
+            totalCorrectAnswers += currentQuiz.score;
+
+            // Check for newly unlocked cats
+            const newlyUnlocked = checkForNewUnlocks(previousCorrect, totalCorrectAnswers);
+
+            // Save to localStorage
+            localStorage.setItem('awsCatAcademyPoints', gamePoints.toString());
+            localStorage.setItem('awsCatAcademyCorrect', totalCorrectAnswers.toString());
+
+            // Update header display
+            updateHeaderStats();
+
+            // Show results screen
+            const screens = document.querySelectorAll('.screen');
+            screens.forEach(screen => screen.classList.remove('active'));
+            const resultsScreen = document.getElementById('results-screen');
+            if (resultsScreen) {
+                resultsScreen.classList.add('active');
+
+                // Update results display
+                const finalCorrect = document.getElementById('final-correct');
+                const pointsEarnedElement = document.getElementById('points-earned');
+                const newUnlocks = document.getElementById('new-unlocks');
+
+                if (finalCorrect) {
+                    finalCorrect.textContent = currentQuiz.score;
+                }
+
+                if (pointsEarnedElement) {
+                    pointsEarnedElement.textContent = pointsEarned;
+                }
+
+                if (newUnlocks) {
+                    const percentage = Math.round((currentQuiz.score / currentQuiz.questions.length) * 100);
+                    if (percentage >= 80) {
+                        newUnlocks.textContent = '🎉 Excellent work! You might have unlocked new cats!';
+                    } else if (percentage >= 60) {
+                        newUnlocks.textContent = '👍 Good job! Keep studying to unlock more cats!';
+                    } else {
+                        newUnlocks.textContent = '📚 Keep practicing! Your cats believe in you!';
+                    }
+                }
+            }
+        }
+
+        function feedSelectedCat() {
+            const selectedCat = document.querySelector('.cat-card.selected');
+            if (!selectedCat) {
+                alert('Please select a cat first! 🐱');
+                return;
+            }
+
+            if (gamePoints >= 50) {
+                gamePoints -= 50;
+                localStorage.setItem('awsCatAcademyPoints', gamePoints.toString());
+                updateHeaderStats();
+
+                const catName = selectedCat.querySelector('.cat-name').textContent;
+                const catData = updateCatHappiness(catName, 15, 'feed'); // +15% happiness
+
+                alert(`🍽️ Fed ${catName}! They're purring happily! 😸\n\nHappiness: ${catData.happiness}% (+15%)\n-50 points`);
+
+                // Refresh the cat gallery to show updated happiness
+                populateCatGallery();
+            } else {
+                alert('😿 Not enough points! You need 50 points to feed your cat.\n\nAnswer more quiz questions to earn points!');
+            }
+        }
+
+        function giveTreat() {
+            const selectedCat = document.querySelector('.cat-card.selected');
+            if (!selectedCat) {
+                alert('Please select a cat first! 🐱');
+                return;
+            }
+
+            if (gamePoints >= 30) {
+                gamePoints -= 30;
+                localStorage.setItem('awsCatAcademyPoints', gamePoints.toString());
+                updateHeaderStats();
+
+                const catName = selectedCat.querySelector('.cat-name').textContent;
+                const catData = updateCatHappiness(catName, 10, 'treat'); // +10% happiness
+
+                alert(`🍪 Gave ${catName} a special treat! They love it! 😻\n\nHappiness: ${catData.happiness}% (+10%)\n-30 points`);
+
+                // Refresh the cat gallery to show updated happiness
+                populateCatGallery();
+            } else {
+                alert('😿 Not enough points! You need 30 points for treats.\n\nAnswer more quiz questions to earn points!');
+            }
+        }
+
+        function petCat() {
+            const selectedCat = document.querySelector('.cat-card.selected');
+            if (!selectedCat) {
+                alert('Please select a cat first! 🐱');
+                return;
+            }
+
+            if (gamePoints >= 20) {
+                gamePoints -= 20;
+                localStorage.setItem('awsCatAcademyPoints', gamePoints.toString());
+                updateHeaderStats();
+
+                const catName = selectedCat.querySelector('.cat-name').textContent;
+                const catData = updateCatHappiness(catName, 8, 'pet'); // +8% happiness
+
+                alert(`🤚 Petted ${catName}! *purr purr* 🥰\n\nHappiness: ${catData.happiness}% (+8%)\n-20 points`);
+
+                // Refresh the cat gallery to show updated happiness
+                populateCatGallery();
+            } else {
+                alert('😿 Not enough points! You need 20 points to pet your cat.\n\nAnswer more quiz questions to earn points!');
+            }
+        }
+
+        // Toggle instructions function
+        function toggleInstructions() {
+            const content = document.getElementById('instructions-content');
+            const toggleBtn = document.querySelector('.toggle-instructions-btn');
+            const toggleText = toggleBtn.querySelector('.toggle-text');
+            const toggleIcon = toggleBtn.querySelector('.toggle-icon');
+
+            const isHidden = content.style.display === 'none' || window.getComputedStyle(content).display === 'none';
+
+            if (isHidden) {
+                // Show instructions
+                content.style.display = 'block';
+                toggleText.textContent = 'Hide';
+                toggleIcon.textContent = '▲';
+                toggleBtn.setAttribute('aria-expanded', 'true');
+            } else {
+                // Hide instructions
+                content.style.display = 'none';
+                toggleText.textContent = 'Show';
+                toggleIcon.textContent = '▼';
+                toggleBtn.setAttribute('aria-expanded', 'false');
+            }
+        }
+
+        // Make quiz functions available globally for HTML buttons
+        window.submitAnswer = submitAnswer;
+        window.nextQuestion = nextQuestion;
+        window.toggleInstructions = toggleInstructions;
+    </script>
+
+    <!-- JavaScript Files -->
+    <script src="questions.js"></script>
+    <script src="cats.js"></script>
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
