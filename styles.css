@@ -106,7 +106,7 @@ body {
 
 /* Welcome Screen */
 .welcome-card {
-    background: rgba(26, 26, 46, 0.95);
+    background: rgba(20, 20, 35, 0.98);
     border-radius: 25px;
     padding: 40px;
     box-shadow: 0 10px 40px rgba(255, 140, 0, 0.3);
@@ -178,7 +178,7 @@ body {
 }
 
 .category-btn {
-    background: rgba(26, 26, 46, 0.9);
+    background: rgba(15, 15, 25, 0.95);
     border: 3px solid #ff8c00;
     border-radius: 20px;
     padding: 25px;
@@ -259,7 +259,7 @@ body {
 }
 
 .btn.secondary {
-    background: rgba(26, 26, 46, 0.9);
+    background: rgba(15, 15, 25, 0.95);
     color: #ff8c00;
     border: 2px solid #ff8c00;
 }
@@ -276,7 +276,7 @@ body {
 
 /* Quiz Screen */
 .quiz-container {
-    background: rgba(26, 26, 46, 0.95);
+    background: rgba(20, 20, 35, 0.98);
     border-radius: 25px;
     padding: 30px;
     box-shadow: 0 10px 40px rgba(255, 140, 0, 0.3);
@@ -387,7 +387,7 @@ body {
 }
 
 .answer-option {
-    background: rgba(26, 26, 46, 0.8);
+    background: rgba(15, 15, 25, 0.9);
     border: 3px solid #444;
     border-radius: 15px;
     padding: 20px;
@@ -498,7 +498,7 @@ body {
 }
 
 .cat-card {
-    background: rgba(26, 26, 46, 0.9);
+    background: rgba(15, 15, 25, 0.95);
     border: 3px solid #ff8c00;
     border-radius: 20px;
     padding: 20px;
@@ -1739,14 +1739,14 @@ reen Enhancements */
 
 .question-text {
     font-size: 1.3rem;
-    color: #2d3436;
+    color: #f5f5f5;
     margin-bottom: 25px;
     line-height: 1.6;
     font-weight: 600;
     padding: 20px;
-    background: rgba(116, 185, 255, 0.1);
+    background: rgba(138, 43, 226, 0.2);
     border-radius: 15px;
-    border-left: 5px solid #74b9ff;
+    border-left: 5px solid #8a2be2;
 }
 
 .answers-grid {
@@ -2303,16 +2303,16 @@ nd Readability Improvements */
     align-items: flex-start;
     gap: 15px;
     padding: 20px;
-    background: rgba(116, 185, 255, 0.05);
+    background: rgba(138, 43, 226, 0.15);
     border-radius: 15px;
-    border-left: 4px solid #74b9ff;
+    border-left: 4px solid #8a2be2;
     transition: all 0.3s ease;
 }
 
 .instruction-item:hover {
-    background: rgba(116, 185, 255, 0.1);
+    background: rgba(138, 43, 226, 0.25);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(116, 185, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
 }
 
 .instruction-icon {
@@ -2323,33 +2323,33 @@ nd Readability Improvements */
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(116, 185, 255, 0.1);
+    background: rgba(255, 140, 0, 0.2);
     border-radius: 50%;
 }
 
 .instruction-content h4 {
-    color: #2d3436;
+    color: #ff8c00;
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 8px;
 }
 
 .instruction-content p {
-    color: #636e72;
+    color: #d0d0d0;
     font-size: 0.9rem;
     line-height: 1.4;
     margin: 0;
 }
 
 .quick-tips {
-    background: rgba(253, 121, 168, 0.05);
+    background: rgba(255, 140, 0, 0.15);
     border-radius: 15px;
     padding: 20px;
-    border-left: 4px solid #fd79a8;
+    border-left: 4px solid #ff8c00;
 }
 
 .quick-tips h4 {
-    color: #e17055;
+    color: #ff8c00;
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 15px;
@@ -2365,7 +2365,7 @@ nd Readability Improvements */
 }
 
 .quick-tips li {
-    color: #636e72;
+    color: #d0d0d0;
     font-size: 0.9rem;
     line-height: 1.5;
     margin-bottom: 8px;
@@ -2381,7 +2381,7 @@ nd Readability Improvements */
 }
 
 .quick-tips li strong {
-    color: #2d3436;
+    color: #ff8c00;
     font-weight: 600;
 }
 
@@ -2749,7 +2749,7 @@ chievements Page Styling */
 }
 
 .achievement-card {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(15, 15, 25, 0.95);
     border-radius: 15px;
     padding: 20px;
     display: flex;
@@ -2809,13 +2809,13 @@ chievements Page Styling */
 .achievement-title {
     font-size: 1.1rem;
     font-weight: 600;
-    color: #2d3436;
+    color: #ff8c00;
     margin-bottom: 5px;
 }
 
 .achievement-description {
     font-size: 0.9rem;
-    color: #636e72;
+    color: #d0d0d0;
     margin-bottom: 10px;
     line-height: 1.4;
 }
