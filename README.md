@@ -3,27 +3,6 @@
 Learn AWS certification concepts while collecting spooky Halloween creatures!
 
 A gamified learning platform that transforms AWS certification study into a fun, Halloween-themed adventure. Answer questions correctly to unlock and care for spooky creatures while mastering cloud computing concepts.
-## 🎨 Screenshots
-
-### 🏠 Main Dashboard
-<img width="2616" height="2612" alt="localhost_8080-AWSCatAcademy🐱" src="https://github.com/user-attachments/assets/622e462d-5383-4394-b8bf-ddd0a83a439c" />
-
-*Welcome screen with learning paths and dynamic cat unlock progress*
-
-### 🎃 Creature Collection Gallery
-<img width="2616" height="2100" alt="localhost_8080-AWSCatAcademy🐱(2)" src="https://github.com/user-attachments/assets/f363f917-3727-4fd6-8c16-c96a62a5334d" />
-
-*Your personal creature collection with spookiness levels and care actions*
-
-# 🏆 Achievements System
-##<img width="2616" height="2634" alt="localhost_8080-AWSCatAcademy🐱(3)" src="https://github.com/user-attachments/assets/c490492f-1d3a-4a16-8f2f-2ada2e01e271" />
-
-*Track your learning progress with 14 different achievements*
-
-### 📚 Interactive Quiz System
-<img width="2616" height="1460" alt="localhost_8080-AWSCatAcademy🐱(1)" src="https://github.com/user-attachments/assets/0f76448b-deb4-4091-8774-020d28ec7093" />
-
-*Engaging quiz interface with real AWS certification questions*
 
 ## ✨ Features
 
