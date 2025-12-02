@@ -247,16 +247,6 @@
                                 <!-- Answer options will be populated by JavaScript -->
                             </div>
 
-                            <div class="quiz-actions">
-                                <button class="btn primary" id="submit-btn" onclick="submitAnswer()" disabled>
-                                    Submit Answer
-                                </button>
-                                <button class="btn primary" id="next-btn" onclick="nextQuestion()"
-                                    style="display: none;">
-                                    Next Question →
-                                </button>
-                            </div>
-
                             <!-- Feedback Area -->
                             <div class="feedback-area" id="feedback-area" style="display: none;">
                                 <div class="feedback-header">
@@ -266,6 +256,16 @@
                                 <div class="explanation" id="explanation">
                                     Explanation will appear here...
                                 </div>
+                            </div>
+
+                            <div class="quiz-actions" style="margin-top: 20px; text-align: center;">
+                                <button class="btn primary" id="submit-btn" onclick="submitAnswer()" disabled>
+                                    Submit Answer
+                                </button>
+                                <button class="btn primary" id="next-btn" onclick="nextQuestion()"
+                                    style="display: none; margin-top: 10px;">
+                                    Next Question →
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -845,13 +845,20 @@
             }
 
             // Switch buttons: hide Submit, show Next
+            console.log('Submit button:', submitBtn);
+            console.log('Next button:', nextBtn);
+            
             if (submitBtn) {
                 submitBtn.style.display = 'none';
+                console.log('Submit button hidden');
             }
 
             if (nextBtn) {
                 nextBtn.style.display = 'inline-flex';
                 nextBtn.style.visibility = 'visible';
+                console.log('Next button shown');
+            } else {
+                console.error('Next button not found!');
             }
         }
 

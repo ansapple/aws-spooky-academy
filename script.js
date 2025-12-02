@@ -194,11 +194,23 @@ class CatGameManager {
 
         // Reset submit button
         const submitBtn = document.getElementById('submit-btn');
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Submit Answer';
+        const nextBtn = document.getElementById('next-btn');
+        
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submit Answer';
+            submitBtn.style.display = 'inline-flex';
+        }
+        
+        if (nextBtn) {
+            nextBtn.style.display = 'none';
+        }
 
         // Hide feedback
-        document.getElementById('feedback-area').style.display = 'none';
+        const feedbackArea = document.getElementById('feedback-area');
+        if (feedbackArea) {
+            feedbackArea.style.display = 'none';
+        }
 
         // Update cat mood
         this.updateCatMood('thinking');
@@ -272,6 +284,19 @@ class CatGameManager {
 
         // Show feedback area
         feedbackArea.style.display = 'block';
+
+        // Switch buttons: hide Submit, show Next
+        const submitBtn = document.getElementById('submit-btn');
+        const nextBtn = document.getElementById('next-btn');
+        
+        if (submitBtn) {
+            submitBtn.style.display = 'none';
+        }
+        
+        if (nextBtn) {
+            nextBtn.style.display = 'inline-flex';
+            nextBtn.style.visibility = 'visible';
+        }
 
         // Update cat mood
         this.updateCatMood(isCorrect ? 'happy' : 'encouraging');
